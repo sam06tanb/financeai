@@ -1,5 +1,5 @@
-const Transactions = ({ params: { id } }) => {
-    return <h1>Transaction: {id}</h1>;
+const Transactions = ({ params: {} }) => {
+  return <h1>Transaction: {}</h1>;
 };
 
 export default Transactions;
