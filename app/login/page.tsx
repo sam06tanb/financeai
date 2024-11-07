@@ -2,18 +2,18 @@ import Image from "next/image";
 import { Button } from "../_components/ui/button";
 import { LogInIcon } from "lucide-react";
 import { SignInButton } from "@clerk/nextjs";
-import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 const LoginPage = async () => {
   const { userId } = await auth();
   if (userId) {
     redirect("/");
   }
+
   return (
     <div className="grid h-full grid-cols-2">
-      {/* ESQUERDA */}
-      <div className="mx-auto flex h-full max-w-[500px] flex-col justify-center p-8">
+      <div className="mx-auto flex h-full max-w-[550px] flex-col justify-center p-8">
         <Image
           src="/logo.png"
           width={173}
@@ -29,13 +29,18 @@ const LoginPage = async () => {
         </p>
         <SignInButton>
           <Button variant="outline">
-            <LogInIcon className="mr-2" /> Fazer login ou criar conta
+            <LogInIcon className="mr-2" />
+            Fazer login ou criar conta
           </Button>
         </SignInButton>
       </div>
-      {/* DIREITA */}
       <div className="relative h-full w-full">
-        <Image src="/login.png" alt="Do login" fill className="object-cover" />
+        <Image
+          src="/login.png"
+          alt="Faça login"
+          fill
+          className="object-cover"
+        />
       </div>
     </div>
   );
