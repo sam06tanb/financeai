@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,15 +8,16 @@ datasource db {
 }
 
 model Transaction {
-  id            String                          @id @default(uuid())
+  id            String                   @id @default(uuid())
   name          String
   type          TransactionType
-  amount        Decimal                         @db.Decimal(10, 2)
+  amount        Decimal                  @db.Decimal(10, 2)
   category      TransactionCategory
   paymentMethod TransactionPaymentMethod
   date          DateTime
-  created       DateTime                        @default(now())
-  updateAt      DateTime                        @updatedAt
+  created       DateTime                 @default(now())
+  updateAt      DateTime                 @updatedAt
+  userId        String
 }
 
 enum TransactionType {
